@@ -11,7 +11,7 @@ const ItemsCards = ({ item }) => {
             {/* Image */}
             <figure className="relative p-6 bg-base-200 rounded-t-2xl">
                 <span className="badge badge-outline badge-primary absolute top-4 right-4 text-xs">
-                    {item?.tags?.[0]}
+                    {item?.category}
                 </span>
 
                 <Image
