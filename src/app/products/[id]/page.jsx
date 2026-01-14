@@ -80,8 +80,8 @@ const ProductDetails = async ({ params }) => {
                         <span className="text-3xl font-bold text-primary">
                             ${price}
                         </span>
-                        <span className="line-through text-base-content/50">
-                            ${price * discountPercentage}
+                        <span className="line-through text-base-content/50 text-lg">
+                            ${ discountPercentage.toFixed(2)}
                         </span>
                     </div>
 
