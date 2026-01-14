@@ -33,7 +33,7 @@ const HowItWorks = () => {
                 <Title style={'text-center'}>How It Works</Title>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
                     {steps.map((step, index) => (
-                        <div key={index} className="flex flex-col items-center text-center p-4 bg-base-100 rounded-xl shadow-md hover:scale-105 transition-transform">
+                        <div key={index} className="flex flex-col items-center text-center p-8 bg-base-100 rounded-xl shadow-md hover:scale-105 transition-transform">
                             <div className="text-primary mb-4">{step.icon}</div>
                             <SubTitle>{step.title}</SubTitle>
                             <p className="text-base-content/70">{step.description}</p>

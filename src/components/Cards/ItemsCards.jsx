@@ -1,19 +1,21 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const ItemsCards = ({ item }) => {
+    const image = item?.images?.[0];
     return (
         <div
             className="card bg-base-100 border border-base-200 rounded-2xl hover:shadow-lg transition-all duration-300"
         >
             {/* Image */}
             <figure className="relative p-6 bg-base-200 rounded-t-2xl">
-                <span className="badge badge-outline absolute top-4 right-4 text-xs">
-                    {item.tag}
+                <span className="badge badge-outline badge-primary absolute top-4 right-4 text-xs">
+                    {item?.tags?.[0]}
                 </span>
 
                 <Image
-                    src={item.image}
+                    src={image}
                     alt={item.title}
                     width={400}
                     height={300}
@@ -32,9 +34,9 @@ const ItemsCards = ({ item }) => {
                         {item.price}
                     </span>
 
-                    <button className="btn btn-primary btn-sm ">
+                    <Link href={`/products/${item.id}`} className="btn btn-primary btn-sm ">
                         View Details
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>

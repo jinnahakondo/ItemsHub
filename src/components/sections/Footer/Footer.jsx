@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { Mail, Share2, Globe } from "lucide-react";
 import Logo from "@/components/Logo/Logo";
+// icons 
+import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
+
 
 const Footer = () => {
     return (
@@ -11,18 +14,24 @@ const Footer = () => {
 
                     {/* Brand */}
                     <div className="lg:col-span-2">
-                        <Link href={'/'} className="mb-4">
+                        <Link href={'/'} className="">
                             <Logo />
                         </Link>
-                        <p className="text-base-content/70 max-w-sm mb-6">
+                        <p className="text-base-content/70 max-w-sm mb-6 mt-4">
                             The modern way to buy and sell items locally. Fast, secure, and
                             beautiful.
                         </p>
-
+                        {/* icons  */}
                         <div className="flex gap-4 text-base-content/60">
-                            <Globe className="w-5 h-5 hover:text-primary cursor-pointer" />
-                            <Share2 className="w-5 h-5 hover:text-primary cursor-pointer" />
-                            <Mail className="w-5 h-5 hover:text-primary cursor-pointer" />
+                            <Link href={'https://www.facebook.com/mdjinnahakondo'} className="hover:text-primary cursor-pointer" >
+                                <FaFacebook size={24} />
+                            </Link>
+                            <Link href={'https://www.linkedin.com/in/jinnahakondo'} className=" hover:text-primary cursor-pointer" >
+                                <FaLinkedin size={24} />
+                            </Link>
+                            <Link href={'https://github.com/jinnahakondo'} className=" hover:text-primary cursor-pointer" >
+                                <FaGithub size={24} />
+                            </Link>
                         </div>
                     </div>
 
