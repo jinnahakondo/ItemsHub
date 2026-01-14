@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Mail, Share2, Globe } from "lucide-react";
+import Logo from "@/components/Logo/Logo";
 
 const Footer = () => {
     return (
@@ -10,11 +11,9 @@ const Footer = () => {
 
                     {/* Brand */}
                     <div className="lg:col-span-2">
-                        <div className="flex items-center gap-2 mb-4">
-                            <span className="text-primary text-xl">✦</span>
-                            <h3 className="text-lg font-bold">ItemPlatform</h3>
-                        </div>
-
+                        <Link href={'/'} className="mb-4">
+                            <Logo />
+                        </Link>
                         <p className="text-base-content/70 max-w-sm mb-6">
                             The modern way to buy and sell items locally. Fast, secure, and
                             beautiful.
