@@ -2,53 +2,20 @@ import Image from "next/image";
 import { ShoppingCart } from "lucide-react";
 import Title from "@/components/Title/Title";
 import ItemsCards from "@/components/Cards/ItemsCards";
+import Link from "next/link";
 
-const items = [
-  {
-    id: 1,
-    title: "Premium Wireless Headphones",
-    price: "$299",
-    tag: "TECH",
-    image: "/images/headphone.png",
-  },
-  {
-    id: 2,
-    title: "Mechanical Keyboard Pro",
-    price: "$150",
-    tag: "OFFICE",
-    image: "/images/keyboard.png",
-  },
-  {
-    id: 3,
-    title: "Ergonomic Task Chair",
-    price: "$420",
-    tag: "FURNITURE",
-    image: "/images/chair.png",
-  },
-  {
-    id: 4,
-    title: "Premium Wireless Headphones",
-    price: "$299",
-    tag: "TECH",
-    image: "/images/headphone.png",
-  },
-  {
-    id: 5,
-    title: "Mechanical Keyboard Pro",
-    price: "$150",
-    tag: "OFFICE",
-    image: "/images/keyboard.png",
-  },
-  {
-    id: 6,
-    title: "Ergonomic Task Chair",
-    price: "$420",
-    tag: "FURNITURE",
-    image: "/images/chair.png",
-  },
-];
 
-const FeaturedItems = () => {
+const getProducts = async () => {
+  const res = await fetch('https://dummyjson.com/products')
+  const data = await res.json();
+  return data.products || [];
+}
+
+const FeaturedItems = async () => {
+  const products = await getProducts()
+  // console.log(products);
+  const featuredProducts = products.slice(0, 5);
+  console.log(FeaturedItems);
   return (
     <section className="">
       {/* Header */}
@@ -62,15 +29,15 @@ const FeaturedItems = () => {
           </p>
         </div>
 
-        <button className="btn btn-link text-primary gap-1">
+        <Link href={'/products'} className="btn btn-link text-primary gap-1">
           View all
           <span>→</span>
-        </button>
+        </Link>
       </div>
 
       {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-8">
-        {items.map((item) => (
+        {featuredProducts.map((item) => (
           <ItemsCards key={item.id} item={item} />
         ))}
       </div>
