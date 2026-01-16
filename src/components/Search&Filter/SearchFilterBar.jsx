@@ -18,7 +18,7 @@ const SearchFilterBar = () => {
                             placeholder="Search by product name, SKU or category..."
                             className="w-full pl-10 md:pl-12 pr-4 py-2.5 md:py-3.5 
                          border border-base-300 rounded-lg md:rounded-xl 
-                         bg-base-200 focus:outline-none focus:ring-2 
+                         bg-base-100 focus:outline-none focus:ring-2 
                          focus:ring-primary focus:border-transparent 
                          text-base-content placeholder:text-base-content/60
                          transition-all duration-200"

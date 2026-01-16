@@ -1,4 +1,5 @@
 import PrimaryButton from '@/components/Buttons/PrimaryButton';
+import Images from '@/components/Images/Images';
 import Title from '@/components/Title/Title';
 import { ShieldCheck, ShoppingCart, Zap } from 'lucide-react';
 import Image from 'next/image';
@@ -14,7 +15,6 @@ const getProduct = async (id) => {
 const ProductDetails = async ({ params }) => {
     const { id } = await params;
     const { title, description, category, price, discountPercentage, images, brand } = await getProduct(id)
-    let mainImage = images?.[0]
     const discountPrice = price * (discountPercentage / 100)
 
     return (
@@ -32,34 +32,8 @@ const ProductDetails = async ({ params }) => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
 
                 {/* Left: Images */}
-                <div>
-                    <div className="rounded-2xl overflow-hidden bg-base-200 aspect-square h-[70%] mx-auto">
-                        <Image
-                            src={mainImage}
-                            alt="Pro Dashboard Elite"
-                            width={800}
-                            height={600}
-                            className="w-full h-auto object-cover"
-                        />
-                    </div>
-
-                    {/* Thumbnails */}
-                    <div className="flex gap-3 mt-4" >
-                        {images.map((image, i) => (
-                            <div
-                                key={i}
-                                className="w-20 h-20 rounded-xl border border-base-300 bg-base-200 flex items-center justify-center cursor-pointer hover:border-primary"
-                            >
-                                <Image
-                                    src={image}
-                                    alt="thumbnail"
-                                    width={80}
-                                    height={80}
-                                    className="object-cover rounded-lg"
-                                />
-                            </div>
-                        ))}
-                    </div>
+                <div className=''>
+                    <Images images={images} />
                 </div>
 
                 {/* Right: Info */}
