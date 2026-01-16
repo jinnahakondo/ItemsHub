@@ -7,10 +7,11 @@ import Logo from '@/components/Logo/Logo';
 import { cookies } from 'next/headers';
 import LogOut from '@/components/Buttons/LogOut';
 
-const NavBar = async () => {
-    const cookieStore = await cookies()
-    const auth = cookieStore.get('auth').value;
 
+const NavBar = async () => {
+
+    const cookieStore = await cookies();
+    const auth = cookieStore.get('auth')?.value === 'true';
 
     return (
         <div className='bg-base-100/80 shadow-md w-full fixed top-0 backdrop-blur-md z-9999'>
@@ -21,11 +22,11 @@ const NavBar = async () => {
                         <li><Link href={'/'} >Home</Link></li>
                         <li><Link href={'/products'}>Products</Link></li>
                         {
-                            auth === 'false' && <li><Link href={'/login'}>Login</Link></li>
+                            auth || <li><Link href={'/login'}>Login</Link></li>
                         }
                     </ul>
                     {
-                        auth === 'true' ? <LogOut /> : <Link href={'/login'} className='btn btn-primary rounded-xl px-5 py-2 shadow'>Get Started</Link>
+                        auth ? <LogOut /> : <Link href={'/login'} className='btn btn-primary rounded-xl px-5 py-2 shadow'>Get Started</Link>
                     }
 
                 </div>

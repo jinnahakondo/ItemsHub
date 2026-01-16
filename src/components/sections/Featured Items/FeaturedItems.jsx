@@ -12,10 +12,11 @@ const getProducts = async () => {
 }
 
 const FeaturedItems = async () => {
+
   const products = await getProducts()
-  // console.log(products);
+ 
   const featuredProducts = products.slice(0, 5);
-  console.log(FeaturedItems);
+
   return (
     <section className="">
       {/* Header */}

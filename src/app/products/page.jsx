@@ -6,9 +6,12 @@ import React from 'react';
 import { IoIosAdd } from "react-icons/io";
 
 const getProducts = async () => {
-    const res = await fetch('https://dummyjson.com/products')
+    const res = await fetch('http://localhost:3000/api/products', {
+        cache: 'force-cache',
+        next: { revalidate: 60 }
+    })
     const data = await res.json();
-    return data.products || [];
+    return data.result || [];
 }
 
 const Products = async () => {
@@ -34,7 +37,7 @@ const Products = async () => {
             {/* products  */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-8">
                 {
-                    products.map(item => <ItemsCards key={item.id} item={item} />)
+                    products.map(item => <ItemsCards key={item._id} item={item} />)
                 }
             </div>
         </div>

@@ -6,7 +6,7 @@ import Link from 'next/link';
 import React from 'react';
 
 const getProduct = async (id) => {
-    const res = await fetch(`https://dummyjson.com/products/${id}`)
+    const res = await fetch(`http://localhost:3000/api/products/${id}`)
     const data = await res.json()
     return data
 }
@@ -81,7 +81,7 @@ const ProductDetails = async ({ params }) => {
                             ${price}
                         </span>
                         <span className="line-through text-base-content/50 text-lg">
-                            ${ discountPercentage.toFixed(2)}
+                            ${discountPercentage.toFixed(2)}
                         </span>
                     </div>
 

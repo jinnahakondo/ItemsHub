@@ -4,6 +4,7 @@ import React from 'react';
 
 const ItemsCards = ({ item }) => {
     const image = item?.images?.[0];
+    console.log(image);
     return (
         <div
             className="card bg-base-100 border border-base-200 rounded-2xl hover:shadow-lg transition-all duration-300"
@@ -34,7 +35,7 @@ const ItemsCards = ({ item }) => {
                         {item.price}
                     </span>
 
-                    <Link href={`/products/${item.id}`} className="btn btn-primary btn-sm ">
+                    <Link href={`/products/${item._id}`} className="btn btn-primary btn-sm ">
                         View Details
                     </Link>
                 </div>
