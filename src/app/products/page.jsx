@@ -2,6 +2,7 @@ import PrimaryButton from '@/components/Buttons/PrimaryButton';
 import ItemsCards from '@/components/Cards/ItemsCards';
 import SearchFilterBar from '@/components/Search&Filter/SearchFilterBar';
 import Title from '@/components/Title/Title';
+import Link from 'next/link';
 import React from 'react';
 import { IoIosAdd } from "react-icons/io";
 
@@ -27,7 +28,7 @@ const Products = async () => {
                 </div>
                 {/* right  */}
                 <div>
-                    <PrimaryButton><span className='text-2xl'>+</span> Add New Product</PrimaryButton>
+                    <PrimaryButton to={'/products/add'}><span className='text-2xl'>+</span> Add New Product</PrimaryButton>
                 </div>
             </div>
             {/* Search Bar  */}

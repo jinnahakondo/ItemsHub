@@ -22,11 +22,14 @@ const NavBar = async () => {
                         <li><Link href={'/'} >Home</Link></li>
                         <li><Link href={'/products'}>Products</Link></li>
                         {
+                            auth && <li><Link href={'/products/add'}>Add Product</Link></li>
+                        }
+                        {
                             auth || <li><Link href={'/login'}>Login</Link></li>
                         }
                     </ul>
                     {
-                        auth ? <LogOut /> : <Link href={'/login'} className='btn btn-primary rounded-xl px-5 py-2 shadow'>Get Started</Link>
+                        auth ? <LogOut /> : <PrimaryButton to={'/login'} className='btn btn-primary rounded-xl px-5 py-2 shadow'>Get Started</PrimaryButton>
                     }
 
                 </div>

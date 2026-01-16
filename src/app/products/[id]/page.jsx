@@ -15,6 +15,7 @@ const ProductDetails = async ({ params }) => {
     const { id } = await params;
     const { title, description, category, price, discountPercentage, images, brand } = await getProduct(id)
     let mainImage = images?.[0]
+    const discountPrice = price * (discountPercentage / 100)
 
     return (
         <div className='container mx-auto px-2'>
@@ -81,7 +82,7 @@ const ProductDetails = async ({ params }) => {
                             ${price}
                         </span>
                         <span className="line-through text-base-content/50 text-lg">
-                            ${discountPercentage.toFixed(2)}
+                            ${discountPrice.toFixed(2)}
                         </span>
                     </div>
 
