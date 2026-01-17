@@ -1,23 +1,42 @@
-import React from 'react';
+'use client'
+import { uploadImage } from '@/app/lib/ImageUpload/UploadImage';
+import React, { useState } from 'react';
+import { FaCloudUploadAlt } from "react-icons/fa";
 
 const AddProduct = () => {
+    const [image, setImage] = useState('')
+    const [loading, setLoading] = useState(false)
+    const handelAddProdut = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const title = form.title.value;
+        const description = form.description.value;
+        const category = form.category.value;
+        const price = form.price.value;
+        const discountPrice = form.discountPrice.value;
+        const image = form.image.value;
+        console.log(title, description, category, price, discountPrice, image);
+    }
+
     return (
-        <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+        <div className="max-w-md mx-auto mt-10 p-6 bg-base-100 rounded-lg shadow-md">
             {/* Heading */}
             <h2 className="text-2xl font-semibold text-center mb-2">Add New Item</h2>
-            <p className="text-center text-gray-500 mb-6">
+            <p className="text-center text-base-content/60 mb-6">
                 Create a new product listing for your storefront
             </p>
 
             {/* Form */}
-            <form className="space-y-4">
-                {/* Item Name */}
+            <form className="space-y-4" onSubmit={(e) => handelAddProdut(e)}>
+                {/* Item Title */}
                 <div>
-                    <label className="block mb-1 font-medium">Item Name</label>
+                    <label className="block mb-1 font-medium">Product Title</label>
                     <input
                         type="text"
                         placeholder="e.g. Wireless Noise Cancelling Headphones"
                         className="input input-bordered w-full"
+                        name='title'
+                        required
                     />
                 </div>
 
@@ -27,10 +46,28 @@ const AddProduct = () => {
                     <textarea
                         placeholder="Provide a detailed description of the product features, specifications, and what's in the box..."
                         className="textarea textarea-bordered w-full"
+                        name='description'
+                        required
                     />
                 </div>
+                {/* category */}
+                <div>
+                    <label className="block mb-1 font-medium">Category</label>
+                    <select
+                        placeholder="Provide a detailed description of the product features, specifications, and what's in the box..."
+                        className="select w-full"
+                        name='category'
+                        required
+                    >
+                        <option value="">select a category</option>
+                        <option value="beauty">beauty</option>
+                        <option value="fragrances">fragrances</option>
+                        <option value="furniture">furniture</option>
+                        <option value="groceries">groceries</option>
+                    </select>
+                </div>
 
-                {/* Price and Image URL */}
+                {/* Price  */}
                 <div className="flex gap-4">
                     <div className="flex-1">
                         <label className="block mb-1 font-medium">Price ($)</label>
@@ -38,22 +75,45 @@ const AddProduct = () => {
                             type="number"
                             placeholder="$0.00"
                             className="input input-bordered w-full"
+                            name='price'
+                            required
                         />
                     </div>
                     <div className="flex-1">
-                        <label className="block mb-1 font-medium">Image URL</label>
+                        <label className="block mb-1 font-medium">Discount Price ($) </label>
                         <input
-                            type="text"
-                            placeholder="https://example.com/product.jpg"
+                            type="number"
+                            placeholder="$0.00"
                             className="input input-bordered w-full"
+                            name='discountPrice'
+                            required
                         />
                     </div>
                 </div>
 
                 {/* Image Preview Box */}
-                <div className="border border-dashed border-gray-300 rounded-lg h-40 flex items-center justify-center text-gray-400">
-                    Image preview will appear here
-                </div>
+                <label for='image' className="border border-dashed border-base-300 rounded-lg h-40 flex flex-col items-center justify-center text-base-content/60">
+
+
+                    {
+                        image ?
+                            <img src={image} className='w-full h-full' />
+                            :
+                            <>
+                                <FaCloudUploadAlt size={30} />
+                                {
+                                    loading ? 'image uploading...' : 'upload produt image'
+                                }
+                            </>
+
+                    }
+                </label>
+                <input className='invisible' id='image' type="file" onChange={async (e) => {
+                    setLoading(true)
+                    const imageUrl = await uploadImage(e)
+                    setLoading(false)
+                    setImage(imageUrl);
+                }} />
 
                 {/* Submit Button */}
                 <button type="submit" className="btn btn-primary w-full mt-4">

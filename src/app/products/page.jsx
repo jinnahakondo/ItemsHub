@@ -15,9 +15,10 @@ const getProducts = async () => {
     return data.result || [];
 }
 
+
 const Products = async () => {
     const products = await getProducts()
-
+   
     return (
         <div className='container mx-auto px-2'>
             <div className='flex items-center justify-between mb-8'>
