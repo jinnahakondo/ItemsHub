@@ -14,7 +14,7 @@ const AddProduct = () => {
         const category = form.category.value;
         const price = form.price.value;
         const discountPrice = form.discountPrice.value;
-        const product = { title, description, category, price, discountPrice, image }
+        const product = { title, description, category, price, discountPrice, images: [image] }
 
         try {
             const res = await fetch('http://localhost:3000/api/products', {
