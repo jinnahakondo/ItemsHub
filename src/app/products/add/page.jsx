@@ -6,7 +6,7 @@ import { FaCloudUploadAlt } from "react-icons/fa";
 const AddProduct = () => {
     const [image, setImage] = useState('')
     const [loading, setLoading] = useState(false)
-    const handelAddProdut = (e) => {
+    const handelAddProdut = async (e) => {
         e.preventDefault();
         const form = e.target;
         const title = form.title.value;
@@ -14,8 +14,26 @@ const AddProduct = () => {
         const category = form.category.value;
         const price = form.price.value;
         const discountPrice = form.discountPrice.value;
-        const image = form.image.value;
-        console.log(title, description, category, price, discountPrice, image);
+        const product = { title, description, category, price, discountPrice, image }
+
+        try {
+            const res = await fetch('http://localhost:3000/api/products', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(product)
+
+            })
+
+            const data = await res.json()
+            setImage('')
+            form.reset()
+            console.log(data);
+        } catch (error) {
+            console.log(error.message);
+        }
+
     }
 
     return (
