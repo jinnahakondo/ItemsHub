@@ -4,10 +4,11 @@ import Title from '@/components/Title/Title';
 import { ShieldCheck, ShoppingCart, Zap } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 import React from 'react';
 
 const getProduct = async (id) => {
-    const res = await fetch(`http://localhost:3000/api/products/${id}`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/products/${id}`)
     const data = await res.json()
     return data
 }
@@ -16,6 +17,10 @@ const ProductDetails = async ({ params }) => {
     const { id } = await params;
     const { title, description, category, price, discountPercentage, images, brand } = await getProduct(id)
     const discountPrice = price * (discountPercentage / 100)
+    if (!title) {
+        redirect('/products')
+    }
+
 
     return (
         <div className='container mx-auto px-2'>

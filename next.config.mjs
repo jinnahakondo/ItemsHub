@@ -7,7 +7,7 @@ const nextConfig = {
         hostname: 'cdn.dummyjson.com',
       },
       {
-        protocol: 'http',
+        protocol: 'https',
         hostname: 'res.cloudinary.com',
       },
     ],

@@ -1,5 +1,5 @@
 import SignInForms from "@/components/Forms/SignInForms";
-import { Lock, Mail } from "lucide-react";
+import { Lock } from "lucide-react";
 import React from "react";
 
 const Login = () => {

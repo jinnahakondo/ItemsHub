@@ -17,7 +17,7 @@ const AddProduct = () => {
         const product = { title, description, category, price, discountPrice, images: [image] }
 
         try {
-            const res = await fetch('http://localhost:3000/api/products', {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/products`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

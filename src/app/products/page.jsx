@@ -2,14 +2,14 @@ import PrimaryButton from '@/components/Buttons/PrimaryButton';
 import ItemsCards from '@/components/Cards/ItemsCards';
 import SearchFilterBar from '@/components/Search&Filter/SearchFilterBar';
 import Title from '@/components/Title/Title';
-import Link from 'next/link';
+
 import React from 'react';
-import { IoIosAdd } from "react-icons/io";
+
 
 const getProducts = async () => {
-    const res = await fetch('http://localhost:3000/api/products', {
-        cache: 'force-cache',
-        next: { revalidate: 60 }
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/products`, {
+        // cache: 'force-cache',
+        // next: { revalidate: 60 }
     })
     const data = await res.json();
     return data.result || [];
@@ -18,7 +18,7 @@ const getProducts = async () => {
 
 const Products = async () => {
     const products = await getProducts()
-   
+
     return (
         <div className='container mx-auto px-2'>
             <div className='flex items-center justify-between mb-8'>

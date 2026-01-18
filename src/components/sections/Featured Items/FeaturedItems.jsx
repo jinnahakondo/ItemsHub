@@ -6,15 +6,15 @@ import Link from "next/link";
 
 
 const getProducts = async () => {
-  const res = await fetch('https://dummyjson.com/products')
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/products`)
   const data = await res.json();
-  return data.products || [];
+  return data.result || [];
 }
 
 const FeaturedItems = async () => {
 
   const products = await getProducts()
- 
+
   const featuredProducts = products.slice(0, 5);
 
   return (
