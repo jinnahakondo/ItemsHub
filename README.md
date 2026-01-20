@@ -1,37 +1,158 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚀 ItemHub – Item Listing Application
 
-## Getting Started
+ItemHub is a simple and modern item listing web application built with **Next.js 16 (App Router)**.  
+The project demonstrates public and protected routing, mock authentication using # 🚀 ItemHub – Item Listing Application
 
-First, run the development server:
+ItemHub is a simple and modern item listing web application built with **Next.js 16 (App Router)**.  
+The project demonstrates public and protected routing, mock authentication using localStorage, and item management using an Express.js API.
 
+---
+
+## 📖 Overview
+
+This project was created as part of a frontend task to showcase:
+- Next.js App Router concepts
+- Basic authentication flow
+- Public & protected pages
+- API data fetching
+- Clean UI using Tailwind CSS & DaisyUI
+
+Users can browse items publicly, while authenticated users can access protected features like adding new items.
+
+---
+
+## ✨ Features
+
+### 🌍 Public
+- Landing page with **7 meaningful sections**
+- Public item list page
+- Public item details page
+- Responsive Navbar & Footer
+- Clean and responsive UI with **DaisyUI**
+
+### 🔐 Authentication
+- Mock login with **hardcoded email & password**
+- Authentication data stored in **localStorage**
+- Protected routes for authenticated users
+- Auto redirect after login
+- Logout functionality
+
+### 📦 Item Management
+- Fetch items from **Express.js API / JSON**
+- Display item name, description, price, and image
+- Dynamic item details page
+- Protected **Add Item** page (authenticated users only)
+- Store new items via Express.js server
+
+### 🔔 Extra
+- Toast notification on successful item creation
+- Clean folder structure using App Router
+
+---
+
+## 🧭 Routes
+
+| Route | Description | Access |
+|------|------------|--------|
+| `/` | Landing Page | Public |
+| `/login` | Login Page | Public |
+| `/items` | Item List | Public |
+| `/items/[id]` | Item Details | Public |
+| `/add-item` | Add New Item | Protected |
+
+---
+
+## 🛠️ Tech Stack
+
+- **Next.js 16** (App Router)
+- **React**
+- **Express.js**
+- **Tailwind CSS**
+- **DaisyUI**
+- **localStorage** (Mock Authentication)
+- **Fetch API**
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the Repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+git clone https://github.com/your-username/itemhub.git
+cd itemhub
+, and item management using an Express.js API.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 📖 Overview
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project was created as part of a frontend task to showcase:
+- Next.js App Router concepts
+- Basic authentication flow
+- Public & protected pages
+- API data fetching
+- Clean UI using Tailwind CSS & DaisyUI
 
-## Learn More
+Users can browse items publicly, while authenticated users can access protected features like adding new items.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ✨ Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🌍 Public
+- Landing page with **7 meaningful sections**
+- Public item list page
+- Public item details page
+- Responsive Navbar & Footer
+- Clean and responsive UI with **DaisyUI**
 
-## Deploy on Vercel
+### 🔐 Authentication
+- Mock login with **hardcoded email & password**
+- Authentication data stored in **localStorage**
+- Protected routes for authenticated users
+- Auto redirect after login
+- Logout functionality
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 📦 Item Management
+- Fetch items from **Express.js API / JSON**
+- Display item name, description, price, and image
+- Dynamic item details page
+- Protected **Add Item** page (authenticated users only)
+- Store new items via Express.js server
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# ItemsHub
+### 🔔 Extra
+- Toast notification on successful item creation
+- Clean folder structure using App Router
+
+---
+
+## 🧭 Routes
+
+| Route | Description | Access |
+|------|------------|--------|
+| `/` | Landing Page | Public |
+| `/login` | Login Page | Public |
+| `/items` | Item List | Public |
+| `/items/[id]` | Item Details | Public |
+| `/add-item` | Add New Item | Protected |
+
+---
+
+## 🛠️ Tech Stack
+
+- **Next.js 16** (App Router)
+- **React**
+- **Express.js**
+- **Tailwind CSS**
+- **DaisyUI**
+- **localStorage** (Mock Authentication)
+- **Fetch API**
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/your-username/itemhub.git
+cd itemhub
