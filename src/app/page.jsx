@@ -4,6 +4,7 @@ import HowItWorks from "@/components/sections/How it works/HowItWorks";
 import ReadyToStart from "@/components/sections/Ready to Start/ReadyToStart";
 import Testimonials from "@/components/sections/Testimonials/Testimonials";
 import WhyChooseUs from "@/components/sections/Why Choose Us/WhyChooseUs";
+import FAQ from "@/components/sections/FAQ/FAQ";
 import Image from "next/image";
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       <div className="container mx-auto space-y-24 px-2">
         <FeaturedItems />
         <Testimonials />
+        <FAQ />
         <ReadyToStart />
       </div>
     </div>
