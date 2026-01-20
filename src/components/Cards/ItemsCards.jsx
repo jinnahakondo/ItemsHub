@@ -3,8 +3,8 @@ import Link from 'next/link';
 import React from 'react';
 
 const ItemsCards = ({ item }) => {
-    const image = item?.images?.[0];
-    console.log(image);
+    const image = item?.images?.[0] || null;
+
     return (
         <div
             className="card bg-base-100 border border-base-200 rounded-2xl hover:shadow-lg transition-all duration-300"

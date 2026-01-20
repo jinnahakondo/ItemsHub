@@ -3,19 +3,12 @@ import { ShoppingCart } from "lucide-react";
 import Title from "@/components/Title/Title";
 import ItemsCards from "@/components/Cards/ItemsCards";
 import Link from "next/link";
-
-
-const getProducts = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/products`)
-  const data = await res.json();
-  return data.result || [];
-}
+import { connect } from "@/app/lib/dbConnect";
 
 const FeaturedItems = async () => {
 
-  const products = await getProducts()
-
-  const featuredProducts = products.slice(0, 5);
+  const productsCol = await connect("products")
+  const featuredProducts = await productsCol.find().limit(5).toArray() || []
 
   return (
     <section className="">

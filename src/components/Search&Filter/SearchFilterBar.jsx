@@ -2,10 +2,15 @@
 
 import React from "react";
 import { Search, ChevronDown } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const SearchFilterBar = () => {
+    const router = useRouter()
     return (
-        <div className="p-4 md:p-6 bg-base-100 border border-base-300 rounded-box md:rounded-2xl shadow-xs">
+        <form onSubmit={(e) => {
+            e.preventDefault()
+            router.push(`?search=${e.target.search.value}`)
+        }} className="p-4 md:p-6 bg-base-100 border border-base-300 rounded-box md:rounded-2xl shadow-xs">
             <div className="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-6">
                 {/* Search Bar */}
                 <div className="flex-1 w-full">
@@ -14,6 +19,7 @@ const SearchFilterBar = () => {
                             <Search className="w-4 h-4 md:w-5 md:h-5 text-base-content/70" />
                         </div>
                         <input
+                            name="search"
                             type="text"
                             placeholder="Search by product name, SKU or category..."
                             className="w-full pl-10 md:pl-12 pr-4 py-2.5 md:py-3.5 
@@ -25,6 +31,11 @@ const SearchFilterBar = () => {
                         />
                     </div>
                 </div>
+                <button type="submit" className=" btn btn-outline w-full sm:w-auto 
+                               justify-between px-4 py-2.5 md:py-3 
+                               rounded-lg md:rounded-xl 
+                               border-base-300 hover:border-base-400
+                               bg-base-100 hover:bg-base-200">Search</button>
 
                 {/* Filter Row */}
                 <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
@@ -93,7 +104,7 @@ const SearchFilterBar = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     );
 };
 
