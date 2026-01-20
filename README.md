@@ -56,9 +56,9 @@ Users can browse items publicly, while authenticated users can access protected 
 |------|------------|--------|
 | `/` | Landing Page | Public |
 | `/login` | Login Page | Public |
-| `/items` | Item List | Public |
-| `/items/[id]` | Item Details | Public |
-| `/add-item` | Add New Item | Protected |
+| `/products` | Item List | Public |
+| `/products/[id]` | Item Details | Public |
+| `/products/add` | Add New Item | Protected |
 
 ---
 
