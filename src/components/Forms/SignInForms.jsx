@@ -16,7 +16,7 @@ const SignInForms = () => {
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
 
-        if (email === "admin@example.com" && password === "password123") {
+        if (email === "example@gmail.com" && password === "Asdf@1234") {
             document.cookie = 'auth=true; path=/';
             toast.success('logged in successfull')
             router.push('/')
@@ -42,7 +42,7 @@ const SignInForms = () => {
                         <input
                             ref={emailRef}
                             type="email"
-                            placeholder="admin@example.com"
+                            placeholder="example@gmail.com"
                             className="input input-bordered w-full pl-3"
                         />
                     </div>

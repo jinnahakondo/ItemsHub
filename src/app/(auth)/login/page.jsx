@@ -30,10 +30,10 @@ const Login = () => {
                         DEMO CREDENTIALS
                     </p>
                     <p className="mt-1 text-base-content/70">
-                        Email: <span className="font-medium">admin@example.com</span>
+                        Email: <span className="font-medium">example@gmail.com</span>
                     </p>
                     <p className="text-base-content/70">
-                        Password: <span className="font-medium">password123</span>
+                        Password: <span className="font-medium">Asdf@1234</span>
                     </p>
                 </div>
 
