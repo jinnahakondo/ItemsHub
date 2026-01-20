@@ -17,7 +17,7 @@ const SignInForms = () => {
         const password = passwordRef.current.value;
 
         if (email === "example@gmail.com" && password === "Asdf@1234") {
-            document.cookie = 'auth=true; path=/';
+            localStorage.setItem('auth', true)
             toast.success('logged in successfull')
             router.push('/')
         }

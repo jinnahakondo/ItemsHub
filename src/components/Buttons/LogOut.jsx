@@ -2,10 +2,11 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const LogOut = () => {
+const LogOut = ({ setAuth }) => {
     return <button
         onClick={() => {
-            document.cookie = 'auth=false; path=/';
+            setAuth(false)
+            localStorage.setItem('auth', false)
             toast.success('log out successfull')
         }
         }
